@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@color/surfaceCard"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvOrderId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã đơn: xxx"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvOrderInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bàn A1 - Nguyễn Văn A"
+            android:textColor="@color/textSecondary"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tvOrderTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2025-12-13 09:30"
+            android:textColor="@color/textSecondary"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/tvOrderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ChoXuLy"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_status_chip"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
