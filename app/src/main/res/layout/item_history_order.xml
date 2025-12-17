@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    card_view:cardCornerRadius="16dp"
-    card_view:cardBackgroundColor="#15151B">
+    card_view:cardCornerRadius="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="12/12/2025 18:00"
-            android:textColor="@android:color/white"
             android:textStyle="bold"/>
 
         <TextView
@@ -26,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bàn 01 - Nguyen Hieu"
-            android:textColor="@android:color/white"
             android:layout_marginTop="2dp"/>
 
         <TextView
@@ -34,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tổng: 147,000 đ"
-            android:textColor="#FFB74D"
+            android:textColor="@color/secondary"
             android:layout_marginTop="4dp"/>
 
         <TextView
@@ -42,7 +39,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thanh toán: MoMo"
-            android:textColor="@android:color/white"
             android:layout_marginTop="4dp"/>
 
         <TextView

@@ -4,10 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootOrderList"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#050509">
+    android:layout_height="match_parent">
 
-    <!-- Toolbar -->
     <LinearLayout
         android:id="@+id/layoutToolbarOrderList"
         android:layout_width="0dp"
@@ -19,25 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_arrow_back_24"
-            android:tint="@android:color/white" />
-
         <TextView
             android:id="@+id/tvTitleOrderList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Danh sách đơn hàng"
-            android:textColor="@android:color/white"
             android:textStyle="bold"
             android:textSize="18sp" />
     </LinearLayout>
 
-    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvOrders"
         android:layout_width="0dp"
@@ -48,7 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Loading -->
     <ProgressBar
         android:id="@+id/progressOrders"
         style="?android:attr/progressBarStyle"

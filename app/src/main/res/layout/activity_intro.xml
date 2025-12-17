@@ -7,7 +7,6 @@
     android:background="@drawable/bg_home_gradient"
     android:fitsSystemWindows="true">
 
-    <!-- Logo hoặc icon app -->
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="96dp"
@@ -24,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cafe Management"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/imgLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:textColor="@color/on_background"
+        android:textStyle="bold"
+        android:textSize="28sp"/>
 
     <TextView
         android:id="@+id/tvIntro"
@@ -48,6 +47,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStart"
+        style="@style/Widget.Cafe.PrimaryButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Bắt đầu sử dụng"

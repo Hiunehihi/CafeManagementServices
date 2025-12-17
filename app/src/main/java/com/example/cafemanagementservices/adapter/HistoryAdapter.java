@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cafemanagementservices.R;
@@ -137,6 +138,16 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.VH> {
                 color = Color.RED;
 
             }
+            else if (st.contains("da nhan")
+                    || st.contains("dang xu ly")
+                    || st.contains("xac nhan")
+                    || st.contains("da xac nhan")) {
+
+                // Trạng thái trung gian (đã nhận/đang xử lý...)
+                statusText = "Trạng thái: " + (stRaw.isEmpty() ? "Đang xử lý" : stRaw);
+                color = 0xFF64B5F6; // blue-ish
+
+            }
             else if (stRaw == null || stRaw.trim().isEmpty()) {
 
                 if (isCash) {
@@ -149,7 +160,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.VH> {
 
             } else {
                 statusText = "Trạng thái: " + stRaw;
-                color = Color.WHITE;
+                // Đừng dùng màu trắng cứng (sẽ bị "mất chữ" ở Light Mode). Dùng màu theo theme.
+                color = ContextCompat.getColor(tvOrderStatus.getContext(), R.color.textSecondary);
             }
 
             tvOrderStatus.setText(statusText);

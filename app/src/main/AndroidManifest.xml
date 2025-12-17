@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,53 +13,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeManagementServices">
+
         <activity
             android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".auth.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.CafeManagementServices.Auth" />
+
         <activity
             android:name=".auth.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.CustomerHomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.CartActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AdminDashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.OrderListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.OrderDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.MenuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.TableManageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.RevenueReportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.CheckoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.HistoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.CustomerOrderDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.CafeManagementServices.Auth" />
+
+        <activity android:name=".customer.CustomerHomeActivity" android:exported="false"/>
+        <activity android:name=".customer.CartActivity" android:exported="false" />
+        <activity android:name=".admin.AdminDashboardActivity" android:exported="false" />
+        <activity android:name=".admin.OrderListActivity" android:exported="false" />
+        <activity android:name=".admin.OrderDetailActivity" android:exported="false" />
+        <activity android:name=".admin.MenuActivity" android:exported="false" />
+        <activity android:name=".admin.TableManageActivity" android:exported="false" />
+        <activity android:name=".admin.RevenueReportActivity" android:exported="false" />
+        <activity android:name=".customer.CheckoutActivity" android:exported="false" />
+        <activity android:name=".customer.HistoryActivity" android:exported="false" />
+        <activity android:name=".customer.CustomerOrderDetailActivity" android:exported="false" />
     </application>
 
 </manifest>

@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#15151B">
+    android:background="@drawable/bg_bottom_sheet">
+
+    <!-- drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_drag_handle"
+        android:alpha="0.35" />
 
     <ImageView
         android:id="@+id/imgMonSheet"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/app_name" />
 
     <TextView
         android:id="@+id/tvTenMonSheet"
@@ -18,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Tên món"
-        android:textColor="@android:color/white"
+        android:textColor="@color/on_surface"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -27,24 +38,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="25,000 đ"
-        android:textColor="#FFB74D"
+        android:text="Giá"
+        android:textColor="@color/textSecondary"
         android:textSize="14sp" />
 
-    <!-- Chọn số lượng -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnGiamSheet"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="@drawable/bg_circle_button"
             android:src="@android:drawable/ic_media_previous"
+            android:tint="@color/on_surface"
             android:contentDescription="Giảm" />
 
         <TextView
@@ -54,47 +65,46 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:text="1"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="@color/on_surface"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnTangSheet"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="@drawable/bg_circle_button"
             android:src="@android:drawable/ic_media_next"
-            android:tint="@android:color/white"
+            android:tint="@color/on_surface"
             android:contentDescription="Tăng" />
+
+        <TextView
+            android:id="@+id/tvThanhTienSheet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="Thành tiền: 0 đ"
+            android:textColor="@color/secondary"
+            android:textStyle="bold"
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvThanhTienSheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Thành tiền: 25,000 đ"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnThemGioSheet"
+        style="@style/Widget.Cafe.PrimaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Thêm vào giỏ"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:backgroundTint="#FFB74D" />
+        android:text="Thêm vào giỏ" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnXoaMonSheet"
+        style="@style/Widget.Cafe.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Xóa món này khỏi giỏ"
-        android:textAllCaps="false"
-        android:textColor="#FF5252"
-        android:backgroundTint="#272733" />
+        android:layout_marginTop="10dp"
+        android:text="Xóa món"
+        android:textColor="@color/textSecondary" />
 
 </LinearLayout>

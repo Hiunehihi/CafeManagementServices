@@ -318,8 +318,8 @@ public class CustomerHomeActivity extends AppCompatActivity {
         TextView tvGiaMon = view.findViewById(R.id.tvGiaMonSheet);
         TextView tvSoLuong = view.findViewById(R.id.tvSoLuongSheet);
         TextView tvThanhTien = view.findViewById(R.id.tvThanhTienSheet);
-        ImageButton btnGiam = view.findViewById(R.id.btnGiamSheet);
-        ImageButton btnTang = view.findViewById(R.id.btnTangSheet);
+        ImageView  btnGiam = view.findViewById(R.id.btnGiamSheet);
+        ImageView  btnTang = view.findViewById(R.id.btnTangSheet);
         Button btnThemGio = view.findViewById(R.id.btnThemGioSheet);
         Button btnXoaMon = view.findViewById(R.id.btnXoaMonSheet);
 

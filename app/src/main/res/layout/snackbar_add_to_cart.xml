@@ -11,13 +11,14 @@
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_coffee_cup" />
+        android:src="@drawable/ic_coffee_cup"
+        android:tint="@color/on_surface" />
 
     <TextView
         android:id="@+id/tvSnackMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/on_surface"
         android:textSize="14sp" />
 </LinearLayout>

@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#15151B">
+    android:background="@drawable/bg_bottom_sheet">
+
+    <!-- drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_drag_handle"
+        android:alpha="0.35" />
 
     <TextView
         android:id="@+id/tvPaymentTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chọn phương thức thanh toán"
-        android:textColor="@android:color/white"
+        android:textColor="@color/on_surface"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -19,39 +29,34 @@
         android:id="@+id/tvPaymentAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:text="Tổng: 0 đ"
-        android:textColor="#FFB74D"
-        android:textSize="16sp" />
+        android:textColor="@color/secondary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPayMomo"
+        style="@style/Widget.Cafe.PrimaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Thanh toán bằng MoMo"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:backgroundTint="#FF80AB" />
+        android:text="Thanh toán bằng MoMo" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPayZalo"
+        style="@style/Widget.Cafe.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Thanh toán bằng ZaloPay"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:backgroundTint="#81D4FA" />
+        android:layout_marginTop="10dp"
+        android:text="Thanh toán bằng ZaloPay" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPayCash"
+        style="@style/Widget.Cafe.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Thanh toán tiền mặt tại quầy"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:backgroundTint="#C5E1A5" />
+        android:layout_marginTop="10dp"
+        android:text="Thanh toán tiền mặt" />
 
 </LinearLayout>

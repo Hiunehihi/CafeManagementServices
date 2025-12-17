@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mã đơn: xxx"
-            android:textColor="@color/white"
             android:textStyle="bold"/>
 
         <TextView
@@ -47,7 +46,6 @@
             android:paddingHorizontal="8dp"
             android:paddingVertical="4dp"
             android:layout_marginTop="6dp"
-            android:textColor="@color/white"
             android:background="@drawable/bg_status_chip"/>
 
     </LinearLayout>

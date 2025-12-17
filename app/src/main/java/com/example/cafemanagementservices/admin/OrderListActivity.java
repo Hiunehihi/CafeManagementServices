@@ -47,9 +47,6 @@ public class OrderListActivity extends AppCompatActivity {
 
         rvOrders = findViewById(R.id.rvOrders);
         progress = findViewById(R.id.progressOrders);
-        ImageView btnBack = findViewById(R.id.btnBack);
-
-        btnBack.setOnClickListener(v -> onBackPressed());
 
         rvOrders.setLayoutManager(new LinearLayoutManager(this));
         adapter = new OrderAdapter(orderList, order -> {

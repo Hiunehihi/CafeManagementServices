@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLogin"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
 
-    <!-- Nền gradient -->
     <View
         android:id="@+id/bgGradient"
         android:layout_width="0dp"
@@ -17,16 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Card login chính -->
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         app:cardCornerRadius="24dp"
         app:cardUseCompatPadding="true"
-        app:cardElevation="12dp"
+        app:cardElevation="8dp"
         app:cardBackgroundColor="@color/surfaceCard"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/on_surface_variant"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,9 +44,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cafe Manager ☕"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:letterSpacing="0.02"
+                android:textSize="24sp"/>
 
             <TextView
                 android:id="@+id/tvSubtitle"
@@ -71,7 +73,6 @@
                     android:id="@+id/edtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +92,6 @@
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,6 +115,6 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
