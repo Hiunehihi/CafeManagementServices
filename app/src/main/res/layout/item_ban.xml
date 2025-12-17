@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardBan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="6dp"
-    android:padding="12dp"
     android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
     android:fitsSystemWindows="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvTenBanManage"
@@ -20,14 +22,30 @@
             android:layout_height="wrap_content"
             android:text="Bàn A1"
             android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvKhuVucBanManage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="Khu vực: Tầng 1"
-            android:textColor="@color/textSecondary"/>
+            android:textColor="#E0E0E0"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvTrangThaiBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Trống"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="#30000000"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"/>
 
     </LinearLayout>
 
