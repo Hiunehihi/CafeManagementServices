@@ -8,9 +8,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cafemanagementservices.R;
 import com.example.cafemanagementservices.admin.AdminDashboardActivity;
 import com.example.cafemanagementservices.customer.CustomerHomeActivity;
-import com.example.cafemanagementservices.R;
 import com.example.cafemanagementservices.firebase.FirebaseService;
 import com.example.cafemanagementservices.model.User;
 import com.example.cafemanagementservices.util.HashUtils;
@@ -60,15 +60,15 @@ public class LoginActivity extends AppCompatActivity {
         String username = edtUsername.getText() != null ? edtUsername.getText().toString().trim() : "";
         String password = edtPassword.getText() != null ? edtPassword.getText().toString().trim() : "";
 
-        // 1. Tính toán Hash của mật khẩu nhập vào
-        String passwordHash = HashUtils.md5(password);
-
         if (username.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập đủ tên đăng nhập và mật khẩu", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        btnLogin.setEnabled(false);
+        // 1. Tính toán Hash của mật khẩu nhập vào
+        String passwordHash = HashUtils.md5(password);
+
+        btnLogin.setEnabled(false); // Khóa nút để tránh bấm nhiều lần
 
         FirebaseService.getTaiKhoanRef()
                 .orderByChild("tenDangNhap")
@@ -76,9 +76,9 @@ public class LoginActivity extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        btnLogin.setEnabled(true);
-
+                        // Nếu không tìm thấy user
                         if (!snapshot.hasChildren()) {
+                            btnLogin.setEnabled(true); // Mở lại nút
                             Toast.makeText(LoginActivity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -87,38 +87,54 @@ public class LoginActivity extends AppCompatActivity {
                             User u = child.getValue(User.class);
                             if (u == null) continue;
 
-                            // --- SỬA LỖI TẠI ĐÂY ---
-                            // So sánh mật khẩu trong DB với passwordHash (đã mã hóa)
-                            if (u.matKhau != null && u.matKhau.equals(passwordHash)) {
-                                u.uid = child.getKey(); // Lưu lại UID thật
+                            boolean isMatched = false;
 
-                                // Kiểm tra vai trò để chuyển hướng
-                                if ("KhachHang".equalsIgnoreCase(u.vaiTro)) {
-                                    Intent i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
-                                    i.putExtra("userId", u.uid);
-                                    i.putExtra("userName", u.hoTen);
-                                    startActivity(i);
-                                } else {
-                                    // Admin hoặc NhanVien
-                                    Intent i = new Intent(LoginActivity.this, AdminDashboardActivity.class);
-                                    i.putExtra("userId", u.uid);
-                                    i.putExtra("userName", u.hoTen);
-                                    startActivity(i);
+                            // --- LOGIC KIỂM TRA MẬT KHẨU ---
+                            if (u.matKhau != null) {
+                                // Trường hợp 1: Tài khoản mới (Mật khẩu trong DB là Hash)
+                                if (u.matKhau.equals(passwordHash)) {
+                                    isMatched = true;
                                 }
-                                finish();
+                                // Trường hợp 2: Tài khoản cũ (Mật khẩu trong DB là chữ thường "123456")
+                                else if (u.matKhau.equals(password)) {
+                                    isMatched = true;
+                                    // (Tùy chọn) Tại đây có thể cập nhật lại mật khẩu thành Hash để bảo mật hơn cho lần sau
+                                }
+                            }
+
+                            if (isMatched) {
+                                btnLogin.setEnabled(true); // Mở lại nút trước khi chuyển trang
+                                u.uid = child.getKey();
+
+                                navigateUser(u);
                                 return;
                             }
                         }
 
-                        // Nếu chạy hết vòng lặp mà không khớp mật khẩu
+                        // Chạy hết vòng lặp mà không khớp
+                        btnLogin.setEnabled(true); // Mở lại nút
                         Toast.makeText(LoginActivity.this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        btnLogin.setEnabled(true);
+                        btnLogin.setEnabled(true); // Mở lại nút
                         Toast.makeText(LoginActivity.this, "Lỗi kết nối: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void navigateUser(User u) {
+        Intent i;
+        if ("KhachHang".equalsIgnoreCase(u.vaiTro)) {
+            i = new Intent(LoginActivity.this, CustomerHomeActivity.class);
+        } else {
+            // Admin hoặc NhanVien
+            i = new Intent(LoginActivity.this, AdminDashboardActivity.class);
+        }
+        i.putExtra("userId", u.uid);
+        i.putExtra("userName", u.hoTen);
+        startActivity(i);
+        finish();
     }
 }
